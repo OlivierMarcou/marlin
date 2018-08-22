@@ -135,7 +135,7 @@
 
 // Optional custom name for your RepStrap or other custom machine
 // Displayed in the LCD "Ready" message
-#define CUSTOM_MACHINE_NAME "3D Printer The Box"
+#define CUSTOM_MACHINE_NAME "The Box v1.03"
 
 // Define this to set a unique identifier for this printer, (Used by some programs to differentiate between machines)
 // You can use an online service to generate a random UUID. (eg http://www.uuidgenerator.net/version4)
@@ -486,14 +486,14 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 4000, 500, 500 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 2600, 500, 500 }
 
 /**
  * Default Max Feed Rate (mm/s)
  * Override with M203
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
-#define DEFAULT_MAX_FEEDRATE          { 200, 200, 5, 25, 25 }
+#define DEFAULT_MAX_FEEDRATE          { 200, 200, 4, 25, 25 }
 
 /**
  * Default Max Acceleration (change/s) change = mm/s
@@ -501,7 +501,7 @@
  * Override with M201
  *                                      X, Y, Z, E0 [, E1[, E2[, E3]]]
  */
-#define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 100, 10000, 10000 }
+#define DEFAULT_MAX_ACCELERATION      { 1000, 1000, 50, 10000, 10000 }
 
 /**
  * Default Acceleration (change/s) change = mm/s
@@ -689,7 +689,7 @@
 // Invert the stepper direction. Change (or reverse the motor connector) if an axis goes the wrong way.
 #define INVERT_X_DIR false
 #define INVERT_Y_DIR true
-#define INVERT_Z_DIR false
+#define INVERT_Z_DIR true
 
 // @section extruder
 
@@ -720,8 +720,8 @@
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
-#define X_MAX_POS 180
-#define Y_MAX_POS 167
+#define X_MAX_POS 130
+#define Y_MAX_POS 142
 #define Z_MAX_POS 200
 
 //===========================================================================
