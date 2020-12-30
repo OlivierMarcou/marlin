@@ -15,23 +15,27 @@ located in the root 'Marlin' folder. Check our Configurations repository to
 see if there's a more suitable starting-point for your specific hardware.
 
 Before diving in, we recommend the following essential links:
+*/
+#include "/home/hpkube/workspace/marlin/Marlin/src/inc/MarlinConfig.h"
 
-Marlin Firmware Official Website
-
-  - https://marlinfw.org/
-    The official Marlin Firmware website contains the most up-to-date
-    documentation. Contributions are always welcome!
-
-Configuration
-
-  - https://github.com/MarlinFirmware/Configurations
-    Example configurations for several printer models.
-
-  - https://www.youtube.com/watch?v=3gwWVFtdg-4
-    A good 20-minute overview of Marlin configuration by Tom Sanladerer.
-    (Applies to Marlin 1.0.x, so Jerk and Acceleration should be halved.)
-    Also... https://www.google.com/search?tbs=vid%3A1&q=configure+marlin
-
+#if ENABLED(ULTRA_LCD)
+  #if ENABLED(LCD_I2C_TYPE_PCF8575)
+    #include <Wire.h>
+    #include <LiquidCrystal_I2C.h>
+  #elif ENABLED(LCD_I2C_TYPE_MCP23017) || ENABLED(LCD_I2C_TYPE_MCP23008)
+    #include <Wire.h>
+    #include <LiquidTWI2.h>
+  #elif ENABLED(LCM1602)
+    #include <Wire.h>
+    #include <LCD.h>
+    #include <LiquidCrystal_I2C.h>
+  #elif ENABLED(DOGLCD)
+    #include <U8glib.h> // library for graphics LCD by Oli Kraus (https://github.com/olikraus/U8glib_Arduino)
+  #else
+    #include <LiquidCrystal.h> // library for character LCD
+  #endif
+#endif
+/*
   - https://marlinfw.org/docs/configuration/configuration.html
     Marlin's configuration options are explained in more detail here.
 
